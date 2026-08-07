@@ -1,0 +1,189 @@
+/* <nav> mobile styling */
+#logo {
+    width: 3.5rem;
+    padding-right: 1rem;
+    /* hides white vertical border to right of cinemax logo that displays on desktop */
+    /* background: linear-gradient(transparent, transparent); */
+}
+
+/* icon button styling */
+#hamburger,
+#account {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0.125rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* gap is distance between icon and text */
+    gap: 0.5rem;
+    /* icon label color */
+    color: var(--primary-text-color);
+    /* uppercase text for icon labels (menu / login) */
+    text-transform: uppercase;
+}
+
+/* login hover (both 'Login' and the icon change color at the same time) */
+#account:hover {
+    color: var(--accent-yellow);
+}
+.account-icon {
+    width: 1.75rem;
+    fill: #ffffff;
+}
+#account:hover .account-icon {
+    width: 1.75rem;
+    fill: currentColor;
+}
+
+
+header {
+    /* allows hero to sit under navbar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-index-nav);
+    display: flex;
+    justify-content: center;
+}
+
+#main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--mobile-nav-padding);
+    background: var(--nav-dark-blue);
+    max-width: var(--max-content-width);
+    width: 100%;
+}
+
+#primary-nav-menu {
+    display: none;
+}
+
+#primary-nav-menu.toggled {
+    display: flex;
+    background: var(--nav-dark-blue);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 3.8rem;
+    flex-direction: column;
+    padding: var(--global-padding);
+    border-top: 0.0625rem solid var(--bg-dark-blue);
+}
+
+
+ul {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    /* gap is distance between links */
+    gap: var(--flex-gap);
+    list-style-type: none;
+    /* make all link text uppercase */
+    text-transform: uppercase;
+}
+
+
+/* Mahtab - style for login form */
+.login-backdrop {
+    position: fixed;
+    inset: 0;
+    /* inset: 0 is shorthand for top, right, bottom and left = 0 */
+    background: var(--nav-dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-index-login);
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.login {
+    background: var(--ui-light-blue);
+    width: clamp(250px, 90%, 400px);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.login h2{
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--nav-dark-blue);
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+    color: var(--nav-dark-blue);
+}
+
+
+.form-group input {
+    padding: 0.8rem;
+    margin: 0.3rem 0;
+    border-radius: var(--border-radius);
+    border: 1px solid white;
+    width: 100%;
+    background-color: var(--nav-dark-blue);
+    box-sizing: border-box;
+}
+
+.login button {
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    border: 1px solid white;
+    background-color: var(--nav-dark-blue);
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    align-self: center;
+}
+
+/* desktop media query */
+@media (min-width: 37.5em) {
+    #logo {
+        /* adds white vertical border to right of cinemax logo (height adjusted) - hidden on mobile */
+        background: linear-gradient(white, white);
+        background-size: .0625rem 75%;
+        background-repeat: no-repeat;
+        background-position: right center;
+        width: 4.5rem;
+    }
+
+    #hamburger {
+        display: none;
+    }
+
+    #main-nav {
+        justify-content: start;
+    }
+
+    #primary-nav-menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        gap: var(--flex-gap);
+        /* width 100% pushes the Account icon to the right (where i want it) but its kind of a sloppy approach. */
+        width: 100%;
+    }
+
+    ul {
+        padding: 0 0 0 1.25rem;
+    }
+
+    .align-right {
+        flex-grow: 6;
+        display: flex;
+        justify-content: end;
+    }
+
+}
